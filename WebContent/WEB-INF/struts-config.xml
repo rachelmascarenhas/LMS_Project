@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<!-- List of forms in application -->
+	<form-beans>
+		<form-bean name="getDetailsForm" type="com.montran.form.GetDetailsForm"/>
+	</form-beans>
+
+	<!-- List of action in application -->
+	<action-mappings>
+		<action path="/issuedBookDetailsAction" type="com.montran.action.IssuedBookDetailsAction" name="getDetailsForm">
+			<forward name="success" path="/BookIssueDetails.jsp" />
+		</action>
+		<action path="/bookAction" type="com.montran.action.BookAction" name="getDetailsForm" validate="true" input="/IssueNewBook.jsp">	
+		    <forward name="book" path="/IssueNewBook.jsp" />
+			<forward name="member" path="/IssueNewBook.jsp" />
+		    <forward name="success" path="/issuedBookDetailsAction.do" />  
+		</action>
+	</action-mappings>
+	<message-resources parameter="Common" />
+	<message-resources parameter="messages" /> 
+</struts-config>
+
+
+
+
+
+
